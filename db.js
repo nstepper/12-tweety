@@ -1,14 +1,13 @@
-const mysql = require('mysql2');
-const connection = mysql.createConnection({
+const mysql = require('mysql2/promise');
+
+const connection = mysql.createPool({
   host: 'localhost',
   user: 'root',
-  password: 'your_mysql_password',
-  database: 'employee_tracker'
-});
-
-connection.connect((err) => {
-  if (err) throw err;
-  console.log('Connected to the employee_tracker database.');
+  password: 'Sefchd15973Z',
+  database: 'employee_tracker_db',
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
 });
 
 module.exports = connection;
